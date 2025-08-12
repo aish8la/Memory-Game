@@ -50,25 +50,21 @@ async function fetchPokemonData(signal) {
 }
 
 export async function loadPokemonData(controllerSignal) {
-    try {
-        const resolvedList = await fetchPokemonData(controllerSignal);
-        const pokemonCardArray = resolvedList.map( entry => {
-            const requiredData = {
-                id: entry.id,
-                name: entry.name,
-                imgURL: entry.sprites.other["official-artwork"].front_default
-            }
+    const resolvedList = await fetchPokemonData(controllerSignal);
+    const pokemonCardArray = resolvedList.map( entry => {
+        const requiredData = {
+            id: entry.id,
+            name: entry.name,
+            imgURL: entry.sprites.other["official-artwork"].front_default
+        }
 
-            return new CardClass(
-                requiredData.id,
-                requiredData.name,
-                requiredData.imgURL
-            )
-        });
+        return new CardClass(
+            requiredData.id,
+            requiredData.name,
+            requiredData.imgURL
+        )
+    });
 
-        return pokemonCardArray;
-    } catch(err) {
-        console.error("Failed to load data: ", err);
-    }
+    return pokemonCardArray;
 
 }
