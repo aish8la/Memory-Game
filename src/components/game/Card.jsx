@@ -1,13 +1,10 @@
 import "./Card.css";
 
-export function Card() {
-    const url = "../../../public/132.png";
-    const image = new Image();
-    image.src = url;
+export function Card({ imageURL }) {
 
     return (
         <div className="card">
-            <img src={url} alt="" />
+            <img src={imageURL} alt="" />
         </div>
     )
 }
