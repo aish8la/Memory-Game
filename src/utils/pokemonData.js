@@ -32,6 +32,7 @@ async function fetchPokemonData(signal) {
         pokemonLinks = listJSON.results;
 
     } catch (error) {
+        if(error.name === 'AbortError') return;
         console.error("Error occurred in fetching: ", error);
     }
 
@@ -39,6 +40,7 @@ async function fetchPokemonData(signal) {
         return fetch(link.url, {signal})
             .then(response => response.json())
             .catch(err => {
+                if(err.name === 'AbortError') return;
                 console.error("Failed to fetch Data: ", err);
             });
     });
