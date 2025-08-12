@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Card } from "./Card";
 import "./Game.css";
-import { loadPokemonData } from "../../utils/pokemonData";
+import { loadPokemonData, randomizedArray } from "../../utils/pokemonData";
 
 
 export function Game() {
@@ -14,8 +14,8 @@ export function Game() {
         const signal = controller.signal;
 
         async function loadData() {
-            const pokemonArray = await loadPokemonData(signal);
-
+            let pokemonArray = await loadPokemonData(signal);
+            if(!pokemonArray) return;
             const imageLoader = pokemonArray.map( entry => {
 
                 const image = new Image();
@@ -29,6 +29,7 @@ export function Game() {
 
             await Promise.all(imageLoader);
 
+            pokemonArray = randomizedArray(pokemonArray);
             setCardsArray(pokemonArray);
          
         }

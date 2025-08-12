@@ -51,6 +51,7 @@ async function fetchPokemonData(signal) {
 
 export async function loadPokemonData(controllerSignal) {
     const resolvedList = await fetchPokemonData(controllerSignal);
+    if(!resolvedList) return;
     const pokemonCardArray = resolvedList.map( entry => {
         const requiredData = {
             id: entry.id,
@@ -67,4 +68,20 @@ export async function loadPokemonData(controllerSignal) {
 
     return pokemonCardArray;
 
+}
+
+export function randomizedArray(array) {
+    let numOfUnshuffled = array.length;
+    let temp;
+    let index;
+
+    while(numOfUnshuffled > 0) {
+        index = Math.floor(Math.random() * numOfUnshuffled);
+        numOfUnshuffled--;
+        temp = array[numOfUnshuffled];
+        array[numOfUnshuffled] = array[index];
+        array[index] = temp;
+    }
+
+    return array;
 }
