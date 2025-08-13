@@ -4,9 +4,32 @@ import "./Game.css";
 import { loadPokemonData, randomizedArray } from "../../utils/pokemonData";
 
 
-export function Game() {
+export function Game({scoreSetter}) {
     
     const [cardsArray, setCardsArray] = useState(null);
+
+    function selectCard(id, scoreSetter, cardArraySetter) {
+        const selectedCard = cardsArray.find( card => {
+            return card?.id === Number(id);
+        });
+
+        if(selectedCard.selected) {
+            //run function change main screen
+            return;
+        }
+
+        selectedCard.selectToggle();
+        scoreSetter(prevScore => {
+            let newScore = prevScore.currentScore + 1;
+            let newHighScore = prevScore.highScore < newScore ?
+                newScore : prevScore.highScore; 
+                return {
+                    currentScore: newScore,
+                    highScore: newHighScore
+                }
+        });
+        cardArraySetter([...randomizedArray(cardsArray)]);
+    }
 
     useEffect(() => {
 
@@ -46,7 +69,13 @@ export function Game() {
         <div className="game-container">
             {!cardsArray ? "Loading...." 
             : cardsArray.map( cardItem => {
-                return <Card key={cardItem.id} imageURL={cardItem.imgURL} ></Card>
+                return <Card key={cardItem.id}
+                    id={cardItem.id}
+                    imageURL={cardItem.imgURL}
+                    scoreSetter={scoreSetter}
+                    cardArraySetter={setCardsArray}
+                    clickHandler={selectCard}
+                ></Card>
             })}
         </div>
     )
