@@ -4,7 +4,7 @@ import "./Game.css";
 import { loadPokemonData, randomizedArray } from "../../utils/pokemonData";
 
 
-export function Game({scoreSetter}) {
+export function Game({scoreSetter, displaySetter}) {
     
     const [cardsArray, setCardsArray] = useState(null);
 
@@ -17,7 +17,7 @@ export function Game({scoreSetter}) {
             scoreSetter(prevScore => { 
                 return {...prevScore, currentScore: 0}  
             });
-            
+            displaySetter("OVER");
             return;
         }
 

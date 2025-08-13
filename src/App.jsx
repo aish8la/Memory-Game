@@ -2,6 +2,8 @@ import { Game } from "./components/game/Game";
 import { Layout } from "./components/layout/Layout";
 import "./App.css";
 import { useState } from "react";
+import { MainMenu } from "./components/displays/main";
+import { GameOver } from "./components/displays/over";
 
 export default function App() {
   
@@ -12,11 +14,16 @@ export default function App() {
   
   switch(display) {
     case "MAIN":
+      currentDisplay = <MainMenu displaySetter={setDisplay}></MainMenu>;
+      break;
     case "GAME":
-      currentDisplay = <Game scoreSetter={setScore} ></Game>;
+      currentDisplay = <Game scoreSetter={setScore} displaySetter={setDisplay} ></Game>;
       break;
     case "OVER":
+      currentDisplay = <GameOver displaySetter={setDisplay}></GameOver>
+      break;
     default:
+      currentDisplay = <MainMenu displaySetter={setDisplay}></MainMenu>;
       break;
   }
 
