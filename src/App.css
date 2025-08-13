@@ -1,5 +1,5 @@
 .app {
   display: grid;
-  grid-template-rows: 1fr 9fr;
+  grid-template-rows: clamp(100px, 10vh, 200px) 1fr;
   min-height: 100vh;
 }
