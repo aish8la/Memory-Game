@@ -20,7 +20,7 @@ export default function App() {
       currentDisplay = <Game scoreSetter={setScore} displaySetter={setDisplay} ></Game>;
       break;
     case "OVER":
-      currentDisplay = <GameOver displaySetter={setDisplay}></GameOver>
+      currentDisplay = <GameOver displaySetter={setDisplay} score={score}></GameOver>
       break;
     default:
       currentDisplay = <MainMenu displaySetter={setDisplay}></MainMenu>;
