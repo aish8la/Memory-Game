@@ -6,7 +6,8 @@ export function Card({ id, imageURL, scoreSetter, cardArraySetter, clickHandler 
         <div className="card"
             id={id}
             onClick={ e => {
-                clickHandler(e.target.id, scoreSetter, cardArraySetter);
+                const cardID = e.target.closest(".card").id; 
+                clickHandler(cardID, scoreSetter, cardArraySetter);
             }}
         >
             <img src={imageURL} alt="" />
