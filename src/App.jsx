@@ -8,7 +8,7 @@ export default function App() {
   const [score, setScore] = useState({currentScore: 0, highScore: 0});
 
   return (
-    <Layout>
+    <Layout score={score}>
       <Game scoreSetter={setScore} ></Game>
     </Layout>
   )

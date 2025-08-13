@@ -14,7 +14,10 @@ export function Game({scoreSetter}) {
         });
 
         if(selectedCard.selected) {
-            //run function change main screen
+            scoreSetter(prevScore => { 
+                return {...prevScore, currentScore: 0}  
+            });
+            
             return;
         }
 

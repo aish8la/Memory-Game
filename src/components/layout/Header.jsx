@@ -1,7 +1,7 @@
-export function Header() {
+export function Header({score}) {
     return (
         <header className="header">
-            This is the Header
+            Current Score = {score.currentScore}, High Score = {score.highScore}
         </header>
     )
 }
