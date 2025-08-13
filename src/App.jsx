@@ -7,7 +7,7 @@ import { GameOver } from "./components/displays/over";
 
 export default function App() {
   
-  const [score, setScore] = useState({currentScore: 0, highScore: 0});
+  const [score, setScore] = useState({currentScore: 0, highScore: 0, lastScore: 0});
   const [display, setDisplay] = useState("MAIN");
 
   let currentDisplay;

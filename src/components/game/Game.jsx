@@ -15,7 +15,7 @@ export function Game({scoreSetter, displaySetter}) {
 
         if(selectedCard.selected) {
             scoreSetter(prevScore => { 
-                return {...prevScore, currentScore: 0}  
+                return {...prevScore, currentScore: 0, lastScore: prevScore.currentScore}  
             });
             displaySetter("OVER");
             return;
@@ -28,7 +28,8 @@ export function Game({scoreSetter, displaySetter}) {
                 newScore : prevScore.highScore; 
                 return {
                     currentScore: newScore,
-                    highScore: newHighScore
+                    highScore: newHighScore,
+                    lastScore: prevScore.currentScore
                 }
         });
         cardArraySetter([...randomizedArray(cardsArray)]);
