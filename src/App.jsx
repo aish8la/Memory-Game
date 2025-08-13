@@ -28,7 +28,7 @@ export default function App() {
   }
 
   return (
-    <Layout score={score}>
+    <Layout score={score} display={display}>
       {currentDisplay}
     </Layout>
   )
