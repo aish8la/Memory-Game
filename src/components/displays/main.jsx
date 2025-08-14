@@ -1,6 +1,6 @@
 export function MainMenu({displaySetter}) {
     return (
-        <div>
+        <div className="main-screen">
             <button onClick={() => {
                 displaySetter("GAME");
             }}
