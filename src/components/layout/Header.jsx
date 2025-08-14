@@ -21,7 +21,7 @@ export function Header({score, display}) {
                 <div>Current Score = {score.currentScore}</div>
                 <div>High Score = {score.highScore}</div>
             </div>
-            : <div className="generic-header">{headerText}</div>
+            : <h1 className="generic-header">{headerText}</h1>
             }
         </header>
     )

@@ -3,3 +3,10 @@
   grid-template-rows: clamp(100px, 10vh, 200px) 1fr;
   min-height: 100vh;
 }
+
+header {
+  display: flex;
+  background-color: var(--secondary);
+  justify-content: center;
+  align-items: center;
+}

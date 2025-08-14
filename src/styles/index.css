@@ -6,6 +6,11 @@
     --accent: #4c91ea;
 }
 
+@font-face {
+    font-family: roboto;
+    src: url(../assets/fonts/roboto/Roboto-VariableFont_wdth,wght.ttf);
+}
+
 * {
     margin: 0px;
     padding: 0px;
@@ -14,5 +19,8 @@
 
 body {
     min-height: 100vh;
+    background-color: var(--background);
+    font-family: roboto;
+    color: var(--text);
 }
 
