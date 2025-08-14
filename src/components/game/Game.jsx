@@ -71,7 +71,8 @@ export function Game({scoreSetter, displaySetter}) {
 
     return (
         <div className="game-container">
-            {!cardsArray ? "Loading...." 
+            {!cardsArray ? 
+            <div className="load-screen">Loading...</div> 
             : cardsArray.map( cardItem => {
                 return <Card key={cardItem.id}
                     id={cardItem.id}
