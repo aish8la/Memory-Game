@@ -73,8 +73,8 @@ export function Game({scoreSetter, displaySetter}) {
         <div className="game-container">
             {!cardsArray ? 
             <div className="load-screen">Loading...</div> 
-            : cardsArray.map( cardItem => {
-                return <Card key={cardItem.id}
+            : cardsArray.map( (cardItem, index) => {
+                return <Card key={index}
                     id={cardItem.id}
                     imageURL={cardItem.imgURL}
                     scoreSetter={scoreSetter}
